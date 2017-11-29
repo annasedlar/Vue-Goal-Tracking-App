@@ -20,7 +20,7 @@ export default {
   },
   methods: {
       submit() {
-          console.log("test")
+          console.log("new goal submitted")
       }
   }
 }
@@ -28,16 +28,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.list{
+    padding-top:20px;
+    margin:auto;
+    width: 66%;
+    border-top: 1px solid grey; 
+}
 h1, h2 {
   font-weight: normal;
 }
 ul {
-  list-style-type: none;
+  list-style-type: circle;
   padding: 0;
 }
 li {
   display: inline-block;
   margin: 0 10px;
+  list-style-type: circle;
 }
 a {
   color: #42b983;
