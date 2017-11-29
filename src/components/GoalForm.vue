@@ -2,7 +2,7 @@
   <div class="card">
     <h1>{{ msg }}</h1>
     <form>
-        <input type="text" placeholder="What's your goal?"></input>
+        <input v-model="goalName" type="text" placeholder="What's your goal?"></input>
         <input type="submit" v-on:click="submit()"></input>
     </form>
   </div>
@@ -17,10 +17,11 @@ export default {
     }
   },
   methods: {
-      submit() {
-          console.log("test");
-
-      }
+    submit() {
+      this.$emit('addGoal', {
+        goalName: this.goalName
+      }) 
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <GoalForm></GoalForm>
+    <GoalForm v-on:addGoal="addGoal"></GoalForm>
     <List v-bind:goals="goals"></List>
   </div>
 </template>
@@ -19,9 +19,14 @@ export default {
   data() {
     return(
       {
-        goals: ['first goal'] 
+        goals: ['first goal', 'second goal'] 
       }
     )
+  },
+  methods: {
+    addGoal ({ goalName }) {
+      console.log('addGoal function', { goalName })
+    }
   }
 }
 </script>

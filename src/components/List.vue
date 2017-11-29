@@ -8,7 +8,7 @@
 import Goal from '@/components/Goal'
 
 export default {
-  name: 'Goal',
+  name: 'List',
   props: ["goals"],
   components: {
       Goal
