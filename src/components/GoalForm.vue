@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="goalInput">
     <h1>{{ msg }}</h1>
     <form>
         <input v-model="goalName" type="text" placeholder="What's your goal?"></input>
@@ -21,15 +21,19 @@ export default {
     submit() {
       this.$emit('addGoal', {
         title: this.goalName,
-        done: false
+        done: false,
       }) 
     }
+    
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.goalInput{
+  margin-bottom:20px;
+}
 h1, h2 {
   font-weight: normal;
 }
