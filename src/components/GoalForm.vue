@@ -13,13 +13,15 @@ export default {
   name: 'GoalForm',
   data () {
     return {
-      msg: 'Welcome to the Goal Tracker App!'
+      msg: 'Welcome to the Goal Tracker App!',
+      goalName: '',
     }
   },
   methods: {
     submit() {
       this.$emit('addGoal', {
-        goalName: this.goalName
+        title: this.goalName,
+        done: false
       }) 
     }
   }

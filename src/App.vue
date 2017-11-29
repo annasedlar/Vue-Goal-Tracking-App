@@ -19,13 +19,14 @@ export default {
   data() {
     return(
       {
-        goals: ['first goal', 'second goal'] 
+        goals: [{title:'first goal', done: false}, {title: 'second goal', done: true}] 
       }
     )
   },
   methods: {
-    addGoal ({ goalName }) {
-      console.log('addGoal function', { goalName })
+    addGoal (newGoal) {
+      console.log('addGoal function', newGoal.title)
+      this.goals.push(newGoal);
     }
   }
 }

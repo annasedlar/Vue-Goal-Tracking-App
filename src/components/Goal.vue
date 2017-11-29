@@ -1,13 +1,21 @@
 <template>
-  <div class="goal">
-      <p>{{goal}}</p>
-  </div>
+    <div v-bind:class="{FinishedGoal: goal.done, IncompleteGoal: !goal.done}">
+        <p v-on:click="changeStatus()">
+            {{goal.title}}
+        </p>
+    </div>
 </template>
 
 <script>
 export default {
   name: 'Goal',
   props: ["goal"],
+  methods:{
+      changeStatus(){
+          console.log("changed done")
+              this.goal.done = !this.goal.done
+      }
+  }
 }
 </script>
 
@@ -26,5 +34,13 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.FinishedGoal{
+    color: blue
+}
+
+.IncompleteGoal{
+    color: red
 }
 </style>
