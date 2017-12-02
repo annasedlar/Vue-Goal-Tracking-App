@@ -14,8 +14,7 @@ export default {
   methods:{
       changeStatus(){
           console.log("changed done")
-              this.goal.done = !this.goal.done
-              this.goal.check = !this.goal.check
+              this.goal.done = !this.goal.done;
       }
   }
 }
