@@ -1,6 +1,6 @@
 <template>
-    <div v-bind:class="{FinishedGoal: goal.done, IncompleteGoal: !goal.done}">
-        <p v-on:click="changeStatus()">
+    <div :class="{FinishedGoal: goal.done, IncompleteGoal: !goal.done}">
+        <p @click="changeStatus(), testFunction()">
              <span v-show="goal.done">X</span>
             {{goal.title}}
         </p>
@@ -12,11 +12,18 @@ export default {
   name: 'Goal',
   props: ["goal"],
   methods:{
-      changeStatus(){
-          console.log("changed done")
-              this.goal.done = !this.goal.done;
-      }
-  }
+        changeStatus(){
+            console.log("changed status")
+                this.goal.done = !this.goal.done;
+        },
+        testFunction(){
+            let status = this.goal.done
+            this.$emit('TESTING', {
+                status
+            })
+            console.log("emitting")
+        }
+    }
 }
 </script>
 

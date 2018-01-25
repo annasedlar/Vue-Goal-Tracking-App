@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <form>
         <input v-model="goalName" type="text" placeholder="What's your goal?"></input>
-        <input type="submit" v-on:click="submit()"></input>
+        <input type="submit" @click="submit()"></input>
     </form>
   </div>
 </template>

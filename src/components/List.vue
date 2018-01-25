@@ -1,6 +1,7 @@
 <template>
   <div class="list">
-      <Goal v-for="goal in goals" v-bind:goal="goal"></Goal>
+      <div>{{title}}</div>
+      <Goal v-for="goal in goals" :goal="goal" v-on:TESTING="seeEvent"></Goal>
   </div>
 </template>
 
@@ -15,12 +16,13 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to the Goal Tracker App!'
+      msg: 'Welcome to the Goal Tracker App!',
+      title: this.title
     }
   },
   methods: {
-      submit() {
-          console.log("new goal submitted")
+      seeEvent({status}) {
+          console.log("event emitted from child. The status of the child-goal you clicked on: " + status)
       }
   }
 }

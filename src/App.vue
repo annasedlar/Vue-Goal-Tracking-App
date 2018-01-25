@@ -1,7 +1,9 @@
+
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <GoalForm v-on:addGoal="addGoal"></GoalForm>
+    <!--   // v-on:TESTING will not run -->
+    <GoalForm v-on:addGoal="addGoal" v-on:TESTING="testEmit()"></GoalForm>
     <List v-bind:goals="goals"></List>
   </div>
 </template>
@@ -25,8 +27,13 @@ export default {
   },
   methods: {
     addGoal (newGoal) {
-      console.log('addGoal function', newGoal.title)
+      console.log('this is the parent', newGoal.title)
       this.goals.push(newGoal);
+    },
+    testEmit(paramsFromGrandChild){
+      // This will never run because no more $dispatch in V2 meaning only direct parent component can listen to child events
+          console.log("event emitted from grand-child. The status of the child-goal you clicked on: " + params.status)
+
     }
   }
 }
